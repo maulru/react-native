@@ -6,23 +6,27 @@ import {
   Dimensions,
   StyleSheet,
   FlatList,
+  View,
 } from "react-native";
+import {Cabecalho} from "./src/Components/Cabecalho";
+import {Foto} from "./src/Components/Foto";
 
 const largura = Dimensions.get("screen").width;
-const informacoes = [{ usuario: "Ricardo" }, { usuario: "Marina" }];
+const informacoes = [
+  { id: 1, usuario: "Ricardo" },
+  { id: 2, usuario: "Marina" },
+];
 const App = () => {
   return (
     <ScrollView>
       <FlatList
         data={informacoes}
-        renderItem={({item}) => (
-          <Fragment>
-            <Text>{item.usuario}</Text>
-            <Image
-              source={require("./res/img/alura.jpg")}
-              style={estilo.imagem}
-            />
-          </Fragment>
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <View style={{ backgroundColor: "black" }}>
+            <Cabecalho nomeUsuario={item.usuario} />
+            <Foto />
+          </View>
         )}
       />
     </ScrollView>
