@@ -7,6 +7,21 @@ const estilo = StyleSheet.create({
     width: largura,
     height: largura,
   },
+  descricaoFoto: {
+    color: "white",
+  },
+  numeroCurtidas: {
+    color: "white",
+  },
+  like: {
+    width: 40,
+    height: 40,
+    margin: 5,
+  },
+  viewLike: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
 });
 
 export default estilo;
